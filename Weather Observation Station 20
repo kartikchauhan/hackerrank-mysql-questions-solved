@@ -1,0 +1,4 @@
+Query to find the median in a table.
+note: It works for both odd and even number of records.
+
+select round(avg(lat_n), 4) from station s where ((select count(*) from station where lat_n < s.lat_n) - (select count(*) from station where lat_n > s.lat_n)) in (-1, 0, 1);
